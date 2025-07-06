@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Our Activities - Sanyukt Karmyogi Sena{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Our Activities</h1>
+        <div class="total-budget-display">
+            Total Expenditure: <span id="total-budget">₹0</span>
+        </div>
+    </div>
+</div>
+<div class="container page-content">
+    <div id="activities-container" class="activities-list">
+        <!-- Posts will be dynamically loaded here by JavaScript -->
+        <div class="loader"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{# This block is now intentionally empty. The main script.js handles everything. #}
+{% endblock %}

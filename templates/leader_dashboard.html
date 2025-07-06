@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block title %}Leader Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Leader Dashboard</h1>
+        <p>Welcome, {{ current_user.username }}!</p>
+    </div>
+</div>
+
+<div class="container dashboard-grid">
+    <!-- Column 1: Post Management -->
+    <section class="dashboard-section" id="post-management">
+        <h2>Manage Activities / Posts</h2>
+        <div class="total-budget-display" style="margin-bottom: 1.5rem;">
+            Total Expenditure: <span id="total-budget-leader">₹0</span>
+        </div>
+
+        <!-- Create Post Form -->
+        <div class="card">
+            <h3>Create New Post</h3>
+            <form id="create-post-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget (₹)</label>
+                    <input type="number" id="budget" name="budget" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="on_ground_members">On-ground Members (comma-separated usernames)</label>
+                    <input type="text" id="on_ground_members" name="on_ground_members">
+                </div>
+                <div class="form-group">
+                    <label for="media">Media (Images/Videos, select multiple)</label>
+                    <input type="file" id="media" name="media" accept="image/*,video/*" multiple>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Post</button>
+            </form>
+        </div>
+
+        <!-- List of All Posts -->
+        <h3 style="margin-top: 2rem;">All Posts</h3>
+        <div id="all-posts-list" class="dashboard-list">
+            <div class="loader"></div>
+        </div>
+    </section>
+
+    <!-- Column 2: User and Suggestion Management -->
+    <div>
+        <section class="dashboard-section" id="user-management">
+            <h2>Manage Users</h2>
+            <div id="all-users-list" class="dashboard-list">
+                <div class="loader"></div>
+            </div>
+        </section>
+
+        {% include '_suggestions_panel.html' %}
+    </div>
+</div>
+{% endblock %}

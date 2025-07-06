@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Donate - Sanyukt Karmyogi Sena{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Support Our Mission</h1>
+    </div>
+</div>
+<div class="container page-content donate-page">
+    <div class="qr-code-container animate-on-scroll">
+        <img src="{{ url_for('static', filename='images/qr_code.png') }}" alt="Scan to Donate">
+    </div>
+    <div class="thank-you-note animate-on-scroll">
+        <h2>Thank You for Your Generosity</h2>
+        <p>Your support is invaluable to us. Every contribution, big or small, fuels our projects and helps us make a real-world impact. By donating, you become a part of our 'Sena' and a partner in change.</p>
+        <p>Please scan the QR code using any UPI-enabled payment app to make a donation. We are grateful for your trust and support.</p>
+    </div>
+</div>
+{% endblock %}

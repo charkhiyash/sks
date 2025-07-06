@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Share Your Suggestion{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Share Your Suggestion</h1>
+        <p>We value your feedback. Help us improve our community work.</p>
+    </div>
+</div>
+
+<div class="form-container">
+    <form method="POST" action="{{ url_for('suggest') }}" class="auth-form animate-on-scroll">
+        <h2>Your Idea</h2>
+
+        {% if current_user.is_authenticated %}
+        <p>You are logged in as <strong>{{ current_user.username }}</strong>. Your suggestion will be linked to your account.</p>
+        {% else %}
+        <div class="form-group">
+            <label for="name">Your Name (Optional)</label>
+            <input type="text" id="name" name="name" placeholder="E.g., John Doe">
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="suggestion_text">Suggestion</label>
+            <textarea id="suggestion_text" name="suggestion_text" rows="6" required placeholder="Describe your idea, what problem it solves, and how we could implement it..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Submit Suggestion</button>
+    </form>
+</div>
+{% endblock %}

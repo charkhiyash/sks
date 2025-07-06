@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container hero-content">
+        <h1 class="animate-on-scroll">Uniting for a Better Tomorrow</h1>
+        <p class="animate-on-scroll">Sanyukt Karmyogi Sena is dedicated to community welfare, empowerment, and positive change through collective action.</p>
+        <a href="{{ url_for('about') }}" class="btn btn-primary animate-on-scroll">Learn More</a>
+    </div>
+</section>
+
+<section id="mission" class="content-section animate-on-scroll">
+    <div class="container">
+        <h2>Our Mission</h2>
+        <p>Our mission is to empower communities through on-ground activities focusing on education, health, and environmental sustainability. We believe in the power of 'Karmayogis' - selfless workers - coming together to create a lasting impact.</p>
+    </div>
+</section>
+
+<section id="recent-activities" class="content-section">
+    <div class="container">
+        <h2>Recent Activities</h2>
+        <div class="posts-grid">
+            {% if posts_with_media %}
+                {% for item in posts_with_media %}
+                <div class="post-card animate-on-scroll">
+                    {% if item.media_path %}
+                    <div class="post-media">
+                        <img class="lazy-load"
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                             data-src="{{ url_for('static', filename=item.media_path) }}"
+                             alt="{{ item.post.title }}">
+                    </div>
+                    {% else %}
+                    <div class="post-media">
+                         <!-- A better placeholder -->
+                         <img class="lazy-load" src="https://via.placeholder.com/400x220/1f2937/9ca3af?text=No+Media" alt="{{ item.post.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="post-card-content">
+                        <h3>{{ item.post.title }}</h3>
+                        <p class="location">{{ item.post.location }}</p>
+                        <p>{{ item.post.description[:100] }}...</p>
+                        <a href="{{ url_for('activities') }}" class="read-more">View Details →</a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No recent activities to display.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section id="donate-preview" class="content-section animate-on-scroll">
+    <div class="container donate-preview-content">
+        <div class="donate-text">
+            <h2>Support Our Cause</h2>
+            <p>Your contribution can make a significant difference. Every donation helps us organize more activities and reach more people in need. Scan the QR code to donate.</p>
+            <a href="{{ url_for('donate') }}" class="btn btn-primary">Donate Now</a>
+        </div>
+        <div class="donate-qr">
+            <img src="{{ url_for('static', filename='images/qr_code.png') }}" alt="Donation QR Code">
+        </div>
+    </div>
+</section>
+{% endblock %}

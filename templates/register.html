@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Sign Up - Sanyukt Karmyogi Sena{% endblock %}
+{% block content %}
+<div class="form-container">
+    <form method="POST" action="{{ url_for('register') }}" class="auth-form animate-on-scroll" enctype="multipart/form-data">
+        <h2>Create an Account</h2>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="profile_pic">Profile Picture (Optional)</label>
+            <input type="file" id="profile_pic" name="profile_pic" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+        <p class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </form>
+</div>
+{% endblock %}

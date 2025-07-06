@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}Co-Leader Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>Co-Leader Dashboard</h1>
+        <p>Welcome, {{ current_user.username }}!</p>
+    </div>
+</div>
+
+<div class="container dashboard-grid">
+    <!-- Column 1: Post Creation -->
+    <section class="dashboard-section">
+        <h2>Create a New Activity Post</h2>
+        <div class="card">
+            <form id="create-post-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget (₹)</label>
+                    <input type="number" id="budget" name="budget" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="on_ground_members">On-ground Members (comma-separated usernames)</label>
+                    <input type="text" id="on_ground_members" name="on_ground_members">
+                </div>
+                <div class="form-group">
+                    <label for="media">Media (Images/Videos, select multiple)</label>
+                    <input type="file" id="media" name="media" accept="image/*,video/*" multiple>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Post</button>
+            </form>
+        </div>
+        <p class="info-text" style="text-align: center; margin-top: 1.5rem;">You can create new posts. For editing or deleting posts, please contact a Leader.</p>
+    </section>
+
+    <!-- Column 2: Suggestions Panel -->
+    <div>
+        {% include '_suggestions_panel.html' %}
+    </div>
+</div>
+{% endblock %}
