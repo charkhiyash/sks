@@ -178,6 +178,36 @@ a:hover {
 .post-card-content p { color: var(--text-secondary); flex-grow: 1; }
 .post-card-content .read-more { margin-top: 1rem; font-weight: 600; }
 
+/* --- Homepage Donate Preview --- */
+.donate-preview-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+}
+.donate-text {
+    flex: 2;
+    min-width: 300px; /* Prevent text from getting too squished */
+}
+.donate-text p {
+    color: var(--text-secondary);
+}
+.donate-qr {
+    flex: 1;
+    text-align: center; /* Center the QR code within its container */
+}
+.donate-qr img {
+    max-width: 250px; /* Set a max size for large screens */
+    width: 100%; /* Make it responsive */
+    height: auto; /* Maintain aspect ratio */
+    min-width: 180px; /* Ensure it doesn't get too small */
+    border-radius: 12px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
 /* --- Activities Page --- */
 .activities-list .activity-post {
     background: var(--surface-color);
@@ -262,7 +292,28 @@ a:hover {
     background-color: white;
     transform: scale(1.2);
 }
-
+/* --- Donate Page --- */
+.donate-page {
+    text-align: center;
+    max-width: 600px; /* Constrain the content width for better readability */
+    margin: 0 auto; /* Center the container itself */
+}
+.qr-code-container img {
+    max-width: 320px; /* A slightly larger max-width for the dedicated page */
+    width: 100%;     /* Make it responsive */
+    height: auto;    /* Maintain aspect ratio */
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+}
+.thank-you-note h2 {
+    margin-bottom: 1rem;
+}
+.thank-you-note p {
+    color: var(--text-secondary);
+}
 /* Forms */
 .form-container { display: flex; justify-content: center; padding: 4rem 20px; }
 .auth-form { background: var(--surface-color); padding: 2.5rem; border-radius: var(--border-radius); box-shadow: 0 4px 20px rgba(0,0,0,0.2); width: 100%; max-width: 450px; border: 1px solid var(--border-color); }
